@@ -1,6 +1,6 @@
 /*
  * REALLY simple processing sketch for using webcam input
- * This sends 300 input values to port 6448 using message /wek/inputs
+ * This sends 300 pixel features to port 6448 using message /wek/inputs
  
  * REFERENCE
  * Rebecca's 100 Webcam Input: http://www.wekinator.org/examples/
@@ -58,7 +58,7 @@ void setup() {
   }
 
   /* start oscP5, listening for incoming messages at port 12000 */
-  oscP5 = new OscP5(this, 9000);
+  oscP5 = new OscP5(this, 12000);
   dest = new NetAddress("127.0.0.1", 6448);
 }
 

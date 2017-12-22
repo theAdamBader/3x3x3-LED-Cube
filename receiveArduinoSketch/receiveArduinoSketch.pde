@@ -13,13 +13,14 @@ Serial myPort;
 OscP5 oscP5;
 NetAddress dest;
 
-//boolean button = false;
-float lastInput = 1;
+float lastFeature = 1;
 
 void setup() {
   size (50, 50);
-
-  myPort = new Serial(this, /*insert what COM port you are using*/"COM5", 9600);
+  
+  //this find which Serial port to look for
+  //insert what COM port you are using
+  myPort = new Serial(this, "COM5", 9600);
 
   oscP5 = new OscP5(this, 12000);
   dest = new NetAddress("127.0.0.1", 6448);
@@ -37,29 +38,30 @@ void oscEvent(OscMessage theOscMessage) {
       float f = theOscMessage.get(0).floatValue();
       println("received1");
 
-
-      if (lastInput != f) {
+      //if the last input is not the current f then go onto the next function
+      if (lastFeature != f) {
         if (f == 1) {
           myPort.write('1');
-          delay(20);
+          //delay(20);
         }
 
         if (f == 2) {
           myPort.write('2');
-          delay(20);
+          //delay(20);
         }
 
         if (f == 3) {
           myPort.write('3');
-          delay(20);
+          //delay(20);
         }
 
         if (f == 4) {
           myPort.write('4');
-          delay(20);
+          //delay(20);
         }
       }
-      lastInput = f;
+      //else lastFeature = f
+      lastFeature = f;
     }
   }
 }

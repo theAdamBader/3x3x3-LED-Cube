@@ -29,7 +29,7 @@ void setup ()
 
 void loop ()
 {
-  delay(20);
+  delay(2000);
 
   if(Serial.available() > 0){//if the available serial is more than 0 the reads the currentEffetc
     currentEffect = Serial.read();
